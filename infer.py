@@ -9,7 +9,7 @@ def main():
     out_dir = Path("/saisresult") if Path("/saisresult").exists() else Path(".")
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    ocr = PaddleOCR(use_angle_cls=False, lang='ch', show_log=False, use_gpu=False)
+    ocr = PaddleOCR(use_textline_orientation=False, lang='ch', use_gpu=False)
     png_files = sorted(data_dir.glob("*.png")) or sorted(Path(".").glob("*.png"))
     print(f"找到 {len(png_files)} 个文件")
 
